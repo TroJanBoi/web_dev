@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<div id="maincontainer"></div>
+		<script>
+			// maincontainer
+			var maincontainer = document.getElementById("maincontainer");
+			let newline = document.createElement("br");
+
+			// title text
+			const title = document.createElement("h2");
+			title.appendChild(document.createTextNode("Excercise 04: JavaScript&DOM"));
+			maincontainer.appendChild(title);
+
+			//time
+			let timecurrent = document.createElement("button");
+			timecurrent.style.border = "2px solid black";
+			maincontainer.appendChild(timecurrent);
+			timecurrent.style.display = "none";
+
+			let worker = new Worker("worker.js");
+
+			worker.onmessage = (event) => {
+				if (event.data != 'stop'){
+					console.log(event.data)
+					timecurrent.textContent = event.data.time;
+					timecurrent.style.color = event.data.text_color;
+					timecurrent.style.backgroundColor = event.data.bg_color;
+					timecurrent.style.position = 'fixed';
+					timecurrent.style.right = '0px';
+					timecurrent.style.top = '0px';
+					btn.style.display = 'none'
+					timecurrent.style.display = "block"
+				}
+				else
+				{
+					console.log(event.data);
+					timecurrent.style.position = 'relative';
+					timecurrent.style.display = "block"
+					timecurrent.style.width = "fit-content"
+				}
+			};
+
+			let isClick = false;
+
+			let btnContainer = document.createElement("div");
+			let btn = document.createElement("button");
+			let btnText = document.createTextNode("Click me to display Date and Time");
+			btn.appendChild(btnText);
+			btnContainer.appendChild(btn);
+			maincontainer.appendChild(btnContainer);
+			maincontainer.appendChild(newline);
+
+			btn.addEventListener("click", function(){
+				if (!isClick){
+					worker.postMessage('start');
+					console.log("time start");
+				}
+			isClick = true;
+			});
+
+			timecurrent.addEventListener("click", function(){
+				console.log("time current click " + isClick);
+				if (isClick){
+					worker.postMessage('stop');
+					console.log("time button click to stop");
+				}
+				else {
+					worker.postMessage('start');
+					console.log("time button click to start");
+				}
+				isClick = !isClick;
+				console.log("time current click " + isClick);
+			});
+
+			//personal info
+			let isInfo = true;
+			personal_info = document.createElement("ul");
+
+			let nameId = document.createElement("li");
+			nameId.appendChild(document.createTextNode("Peerapol&Srisawat of student, ID: 66015145"));
+			console.log(nameId);
+
+			let subject = document.createElement("li");
+			subject.appendChild(document.createTextNode("Subject: Web Application Development"));
+			console.log(subject);
+
+			let semester = document.createElement("li");
+			semester.appendChild(document.createTextNode("Semester: 1"));
+			console.log(semester);
+
+			personal_info.appendChild(nameId);
+			personal_info.appendChild(subject);
+			personal_info.appendChild(semester);
+			personal_info.style.display = "none";
+
+			let title_personal = document.createElement("a");
+			let text_personal = document.createTextNode("Personal Info");
+			title_personal.appendChild(text_personal);
+			console.log(title_personal);
+			title_personal.style.color = "pink";
+			title_personal.style.textDecoration = "underline";
+
+			maincontainer.appendChild(title_personal);
+			maincontainer.appendChild(personal_info);
+
+			// hover
+			title_personal.addEventListener("mouseover", function(){
+				title_personal.style.background = "yellow";
+				title_personal.style.color = "blue";
+				title_personal.style.cursor = "default";
+			});
+
+			title_personal.addEventListener("mouseout", function(){
+				title_personal.style.background = "none";
+				title_personal.style.color = "pink";
+			});
+
+			//click show personal info
+			title_personal.addEventListener("click", function(){
+				if (isInfo){
+					personal_info.style.display = "list-item";
+				}
+				else{
+					personal_info.style.display = "none";
+				}
+				isInfo = !isInfo;
+			});
+
+			let snapshots = document.createElement("h1");
+			let text_snap = document.createTextNode("Snapshots");
+			snapshots.appendChild(text_snap);
+
+			maincontainer.appendChild(snapshots);
+
+			let list_snap = document.createElement("ul");
+
+			let firework = document.createElement("li");
+			let firework_a = document.createElement("a");
+			firework_a.appendChild(document.createTextNode("Fireworks"));
+			firework.appendChild(firework_a);
+			firework_a.style.color = "blue";
+			firework_a.style.textDecoration = "underline";
+			console.log(firework);
+			
+			let crest = document.createElement("li");
+			let crest_a = document.createElement("a");
+			crest_a.appendChild(document.createTextNode("Crest"));
+			crest.appendChild(crest_a);
+			crest_a.style.color = "blue";
+			crest_a.style.textDecoration = "underline";
+			console.log(crest);
+
+			let action = document.createElement("li");
+			let action_a = document.createElement("a");
+			action_a.appendChild(document.createTextNode("Action"));
+			action.appendChild(action_a);
+			action_a.style.color = "blue";
+			action_a.style.textDecoration = "underline";
+			console.log(action);
+
+			let buff = document.createElement("li");
+			let buff_a = document.createElement("a");
+			buff_a.appendChild(document.createTextNode("Buffalo"));
+			buff.appendChild(buff_a);
+			buff_a.style.color = "blue";
+			buff_a.style.textDecoration = "underline";
+			console.log(buff);
+
+			list_snap.appendChild(firework);
+			list_snap.appendChild(crest);
+			list_snap.appendChild(action);
+			list_snap.appendChild(buff);
+			maincontainer.appendChild(list_snap);
+
+			// hover
+			list_snap.addEventListener("mouseover", function(){
+				list_snap.style.cursor = "pointer";
+			});
+
+			let img = document.createElement("img");
+			img.src = "https://www.foodeng.kmitl.ac.th/wp-content/uploads/2021/06/KMITL-1024x447.png";
+			img.width = "600";
+			console.log(img);
+			maincontainer.appendChild(img);
+
+			firework.addEventListener("click", function(){
+				img.src = "https://media.istockphoto.com/id/1404630183/photo/usa-america-united-states-new-year-or-independence-day-celebration-holiday-background.jpg?s=612x612&w=0&k=20&c=wz_SQCm9_uDGK34EnrbBL_yGHIeHx2MCRgqLPtZwmLY=";
+			});
+
+			crest.addEventListener("click", function(){
+				img.src = "https://cdn.vectorstock.com/i/preview-1x/65/41/premium-quality-label-vector-7976541.jpg";
+			});
+
+			action.addEventListener("click", function(){
+				img.src = "https://pyxis.nymag.com/v1/imgs/e65/d9b/63e2707aed9af804f80251c1cb043f5171-09-raid-2.2x.h473.w710.jpg";
+			});
+
+			buff.addEventListener("click", function(){
+				img.src = "https://i.natgeofe.com/n/de7be89d-3715-4e89-b83b-ab697ef781b8/thumbnail-cape-buffalo-nationalgeographic_1976203_16x9.jpg";
+			});
+		</script>
+	</body>
+</html>
