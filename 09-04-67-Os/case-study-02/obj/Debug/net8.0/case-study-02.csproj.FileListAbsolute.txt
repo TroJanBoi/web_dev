@@ -1,0 +1,14 @@
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\bin\Debug\net8.0\case-study-02.exe
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\bin\Debug\net8.0\case-study-02.deps.json
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\bin\Debug\net8.0\case-study-02.runtimeconfig.json
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\bin\Debug\net8.0\case-study-02.dll
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\bin\Debug\net8.0\case-study-02.pdb
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\obj\Debug\net8.0\case-study-02.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\obj\Debug\net8.0\case-study-02.AssemblyInfoInputs.cache
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\obj\Debug\net8.0\case-study-02.AssemblyInfo.cs
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\obj\Debug\net8.0\case-study-02.csproj.CoreCompileInputs.cache
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\obj\Debug\net8.0\case-study-02.dll
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\obj\Debug\net8.0\refint\case-study-02.dll
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\obj\Debug\net8.0\case-study-02.pdb
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\obj\Debug\net8.0\case-study-02.genruntimeconfig.cache
+C:\Users\pesrisaw\Documents\Os\09-04-67\case-study-02\obj\Debug\net8.0\ref\case-study-02.dll
